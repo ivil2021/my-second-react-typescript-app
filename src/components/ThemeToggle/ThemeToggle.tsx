@@ -17,10 +17,6 @@ export function ThemeToggle () {
 
   const theme = useMemo(() => (isDarkMode ? darkTheme : lightTheme), [isDarkMode]);
 
-  const toggleTheme = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsDarkMode(event.target.checked);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <AppContainer theme={theme}>
@@ -28,7 +24,7 @@ export function ThemeToggle () {
           <ToggleInput
             type="checkbox"
             checked={isDarkMode}
-            onChange={toggleTheme}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setIsDarkMode(event.target.checked)}}
             id="theme-toggle"
           />
           <label htmlFor="theme-toggle">
