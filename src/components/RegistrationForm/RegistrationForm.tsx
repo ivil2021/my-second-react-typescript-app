@@ -23,42 +23,44 @@ const SignupSchema = Yup.object().shape({
     .required('Пароль обязателен')
 });
 
-export const RegistrationForm = () => (
-  <div>
-    <Formik
-      initialValues={{
-        name: '',
-        email: '',
-        password: '',
-      }}
-      validationSchema={SignupSchema}
-      onSubmit={values => console.log(values)}
-    >
-      {({ errors, touched }) => (
-        <Form>
-          <FormContainer>
-            <div>
-              <h3>Форма регистрации</h3>
-            </div>
-            <div>
-              <label htmlFor="name">Имя</label>
-              <Field name="name" type="text" />
-              {errors.name && touched.name ? <div>{errors.name}</div> : null}
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <Field name="email" type="email" />
-              {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            </div>
-            <div>
-              <label htmlFor="password">Пароль</label>
-              <Field name="password" type="password" />
-              {errors.password && touched.password ? <div>{errors.password}</div> : null}
-            </div>
-            <button type="submit">Зарегистрироваться</button>
-          </FormContainer>
-        </Form>
-      )}
-    </Formik>
-  </div>
-);
+export function RegistrationForm () {
+  return (
+    <div>
+      <Formik
+        initialValues={{
+          name: '',
+          email: '',
+          password: '',
+        }}
+        validationSchema={SignupSchema}
+        onSubmit={values => console.log(values)}
+      >
+        {({ errors, touched }) => (
+          <Form>
+            <FormContainer>
+              <div>
+                <h3>Форма регистрации</h3>
+              </div>
+              <div>
+                <label htmlFor="name">Имя</label>
+                <Field name="name" type="text" />
+                {errors.name && touched.name ? <div>{errors.name}</div> : null}
+              </div>
+              <div>
+                <label htmlFor="email">Email</label>
+                <Field name="email" type="email" />
+                {errors.email && touched.email ? <div>{errors.email}</div> : null}
+              </div>
+              <div>
+                <label htmlFor="password">Пароль</label>
+                <Field name="password" type="password" />
+                {errors.password && touched.password ? <div>{errors.password}</div> : null}
+              </div>
+              <button type="submit">Зарегистрироваться</button>
+            </FormContainer>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  )
+};

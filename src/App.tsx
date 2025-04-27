@@ -5,8 +5,8 @@ import { ThemeToggle } from './components/ThemeToggle/ThemeToggle';
 export function App() {
   return (
     <div className="App">
-      <ThemeToggle />
       <RegistrationForm />
+      <ThemeToggle />
     </div>
   );
 }
