@@ -11,8 +11,6 @@ import { useRegistrationForm } from "./useRegistrationForm";
 export function RegistrationForm() {
   const { form } = useRegistrationForm({});
 
-  console.log('form: ', form);
-
   return (
     <div>
       <FormContainer>
