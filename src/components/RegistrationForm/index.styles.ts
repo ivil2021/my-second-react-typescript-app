@@ -51,3 +51,7 @@ export const FormContainer = styled.div`
     }
   }
 `;
+
+export const TextError = styled.div`
+  color: red;
+`;

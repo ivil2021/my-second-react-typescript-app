@@ -5,7 +5,7 @@
 что все поля заполнены и что email имеет правильный формат.
 */
 
-import { FormContainer } from './index.styles';
+import { FormContainer, TextError } from './index.styles';
 import { useRegistrationForm } from "./useRegistrationForm";
 
 export function RegistrationForm() {
@@ -27,7 +27,9 @@ export function RegistrationForm() {
             onBlur={form.handleBlur}
           />
           {form.errors.name && form.touched.name && (
-            <div className="error-message">{form.errors.name}</div>
+            <TextError>
+              <div>{form.errors.name}</div>
+            </TextError>
           )}
         </div>
 
@@ -41,7 +43,9 @@ export function RegistrationForm() {
             disabled={!form.values.name || Boolean(form.errors.name)}
           />
           {form.errors.email && form.touched.email && (
-            <div className="error-message">{form.errors.email}</div>
+            <TextError>
+              <div>{form.errors.email}</div>
+            </TextError>
           )}
         </div>
 
@@ -56,7 +60,9 @@ export function RegistrationForm() {
             disabled={!form.values.email || Boolean(form.errors.email)}
           />
           {form.errors.password && form.touched.password && (
-            <div className="error-message">{form.errors.password}</div>
+            <TextError>
+              <div>{form.errors.password}</div>
+            </TextError>
           )}
         </div>
 
