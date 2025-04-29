@@ -30,10 +30,6 @@ export const FormContainer = styled.div`
     border: 1px solid black;
   }
 
-  .error-message {
-    color: red;
-  }
-
   button {
     display: block;
     width: 100%;
