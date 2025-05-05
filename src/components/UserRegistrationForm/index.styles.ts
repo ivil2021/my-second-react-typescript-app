@@ -48,6 +48,7 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const TextError = styled.div`
+export const TextError = styled.p`
   color: red;
+  margin-top: 0;
 `;
