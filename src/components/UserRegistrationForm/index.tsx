@@ -5,36 +5,11 @@
 что все поля заполнены и что email имеет правильный формат.
 */
 
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { FormContainer, TextError } from './index.styles';
-
-interface IFormData {
-  name: string;
-  email: string;
-  password: string;
-}
-
-const validationSchema = z.object({
-  name: z.string()
-    .min(3, 'Обязательное поле'),
-  email: z.string()
-    .email('Неверный формат Email')
-    .min(1, 'Обязательное поле'),
-  password: z.string()
-    .min(6, 'Обязательное поле'),
-});
+import { useUserRegistrationForm } from "./useUserRegistrationForm";
 
 export function UserRegistrationForm () {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({
-    resolver: zodResolver(validationSchema),
-    mode: 'onBlur',
-  });
+  const { register, handleSubmit, errors, isValid } = useUserRegistrationForm();
 
   return (
     <div>
@@ -42,7 +17,7 @@ export function UserRegistrationForm () {
         <div>
           <h3>User Registration Form</h3>
         </div>
-        <form onSubmit={handleSubmit((data: IFormData) => console.log('Submitted values:', data))}>
+        <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor='name'>Имя: </label>
             <input
